@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+body{
+    position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: 300% 300%;
+        background-image: linear-gradient(
+              -45deg, 
+              rgba(59,173,227,1) 0%, 
+              rgba(87,111,230,1) 25%, 
+              rgba(152,68,183,1) 51%, 
+              rgba(255,53,127,1) 100%
+        );  
+        animation: AnimateBG 20s ease infinite;
+
+}
+
+@keyframes AnimateBG { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+
+#formulario{
+    background-color: #353245;
+    display: flex;
+    width: 850px;
+    height: 450px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.p-error{
+    color: white;
+    width: 300px;
+    text-align: center;
+    margin-top: -10px ;
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+
+.email-content{
+    margin-top: 50px;
+    margin-left: 50px;
+    color: black;
+}
+
+.send{
+    background: rgb(222,178,255);
+    background: linear-gradient(90deg, rgba(222,178,255,1) 24%, rgba(165,194,255,1) 85%);
+}
+
+.reset{
+    background: rgb(222,178,255);
+    background: linear-gradient(90deg, rgba(222,178,255,1) 24%, rgba(165,194,255,1) 85%);
+}
+
+input{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+input[type="text"]{
+    width: 300px;
+    border-radius: 100px;
+}
+input[type="email"]{
+    width: 300px;
+    border-radius: 100px;
+}
+
+
+#mensaje{
+    /* height: 200px; */
+}
+
+h2{
+    font-family: 'Days One', sans-serif;
+    font-size: 3.5rem;
+    color: white;
+}
+
+span{
+    background: rgb(222,178,255);
+    background: linear-gradient(90deg, rgba(222,178,255,1) 24%, rgba(165,194,255,1) 85%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.sent-email img{
+    width: 450px;
+}
