@@ -101,3 +101,11 @@ span{
 .sent-email img{
     width: 450px;
 }
+
+.spinner-content{
+    display: none;
+}
+
+.p-mensaje-exito{
+    color: white;
+}

@@ -15,15 +15,53 @@ document.addEventListener('DOMContentLoaded',function(){
     const inputMensaje = document.querySelector('#mensaje');
     const formulario = document.querySelector('#formulario');
     const btnSubmit = document.querySelector('#formulario button[type="submit"]');
+    const btnReset = document.querySelector('#formulario button[type="reset"]');
+    const spinner = document.querySelector('#spinner');
+    const contenidoEmail = document.querySelector('#email-contenido');
 
     // asignar evento
     // inputEmail.addEventListener('blur',validar);
 
     // blur es para cuando se sale de input o mejor dicho sales de ese campo
     // input es para una validacion en tiempo real
-    inputEmail.addEventListener('blur', validar);
-    inputMensaje.addEventListener('blur',validar);
-    inputAsunto.addEventListener('blur',validar);
+    inputEmail.addEventListener('input', validar);
+    inputMensaje.addEventListener('input',validar);
+    inputAsunto.addEventListener('input',validar);
+
+    formulario.addEventListener('submit', enviarEmail)
+
+    btnReset.addEventListener('click',function (e) {
+        e.preventDefault()
+        // elminia la accion por defecto
+
+        resetFormulario();
+    })
+
+    function enviarEmail(e) {
+        e.preventDefault();
+
+        spinner.setAttribute('style','display:flex');
+
+        setTimeout(() =>{
+        spinner.setAttribute('style','display:hidden');
+
+                // reiniciar el objetos
+                resetFormulario();
+
+                // crear una alerta
+                const alertaExito = document.createElement('P');
+                alertaExito.classList.add('p-mensaje-exito');
+
+                contenidoEmail.appendChild(alertaExito);
+                alertaExito.textContent = '✅ Mensaje Enviado Correctamente'
+                
+                setTimeout(() => {
+                    alertaExito.remove();
+                }, 2000);
+        }, 2000);
+    }
+
+
     function validar(e) {
         // para avanzar al siguiente elmento usa netxElementSibling
         // console.log(e.target.parentElement.nextElementSibling);
@@ -95,6 +133,15 @@ document.addEventListener('DOMContentLoaded',function(){
             btnSubmit.setAttribute("style","opacity: 100%");
             btnSubmit.disabled = false;
         
+    }
+
+    function resetFormulario() {
+            // reiniciar el objetos
+            email.email = '';
+            email.asunto = '';
+            email.mensaje = '';
+            formulario.reset();
+            comprobarEmail();
     }
 });
 
